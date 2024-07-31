@@ -971,23 +971,23 @@ module.exports = naze = async (naze, m, chatUpdate, store) => {
 							sections: [{
 								title: 'Bot Settings',
 								rows: [
-									{ title: 'Anti Call On🟢', description: 'Mengaktifkan Anti Call', id: '.bot anticall on' },
-									{ title: 'Anti Call Off🔴', description: 'Mematikan Anti Call', id: '.bot anticall off' },
-									{ title: 'Auto Bio On🟢', description: 'Mengaktifkan Auto Bio', id: '.bot autobio on' },
-									{ title: 'Auto Bio Off🔴', description: 'Mematikan Auto Bio', id: '.bot autobio off' },
-									{ title: 'Auto Read On🟢', description: 'Mengaktifkan Auto Read', id: '.bot autoread on' },
-									{ title: 'Auto Read Off🔴', description: 'Mematikan Auto Read', id: '.bot autoread off' },
-									{ title: 'Auto Type On🟢', description: 'Mengaktifkan Auto Type', id: '.bot autotype on' },
-									{ title: 'Auto Type Off🔴', description: 'Mematikan Auto Type', id: '.bot autotype off' },
-									{ title: 'Read SW On🟢', description: 'Mengaktifkan Read SW', id: '.bot readsw on' },
-									{ title: 'Read SW Off🔴', description: 'Mematikan Read SW', id: '.bot readsw off' },
-									{ title: 'Multi Prefix On🟢', description: 'Mengaktifkan Multi Prefix', id: '.bot multiprefix on' },
-									{ title: 'Multi Prefix Off🔴', description: 'Mematikan Multi Prefix', id: '.bot multiprefix off' }
+									{ title: 'Anti Call On🟢', description: 'Enable Anti Call', id: '.bot anticall on' },
+									{ title: 'Anti Call Off🔴', description: 'Disable Anti Call', id: '.bot anticall off' },
+									{ title: 'Auto Bio On🟢', description: 'Enable Auto Bio', id: '.bot autobio on' },
+									{ title: 'Auto Bio Off🔴', description: 'Disable Auto Bio', id: '.bot autobio off' },
+									{ title: 'Auto Read On🟢', description: 'Enable Auto Read', id: '.bot autoread on' },
+									{ title: 'Auto Read Off🔴', description: 'Disable Auto Read', id: '.bot autoread off' },
+									{ title: 'Auto Type On🟢', description: 'Enable Auto Type', id: '.bot autotype on' },
+									{ title: 'Auto Type Off🔴', description: 'Disable Auto Type', id: '.bot autotype off' },
+									{ title: 'Read SW On🟢', description: 'Enable Read SW', id: '.bot readsw on' },
+									{ title: 'Read SW Off🔴', description: 'Disable Read SW', id: '.bot readsw off' },
+									{ title: 'Multi Prefix On🟢', description: 'Enable Multi Prefix', id: '.bot multiprefix on' },
+									{ title: 'Multi Prefix Off🔴', description: 'Disable Multi Prefix', id: '.bot multiprefix off' }
 								]
 							}]
 						}
 					}]
-					await naze.sendButtonMsg(m.chat, 'Bot Settings', ucapanWaktu, 'Silahkan dipilih Owner🫡', null, buttonnya, m);
+					await naze.sendButtonMsg(m.chat, 'Bot Settings', ucapanWaktu, 'Sandaru🫡', null, buttonnya, m);
 				} else if (text && isCreator) {
 					if (text === 'anticall on') db.set[botNumber].anticall = true, m.reply('Sukses Mengaktifkan Anticall');
 					if (text === 'anticall off') db.set[botNumber].anticall = false, m.reply('Sukses Mematikan Anticall');
@@ -1041,7 +1041,7 @@ module.exports = naze = async (naze, m, chatUpdate, store) => {
 				let latensi = speed() - timestamp
 				neww = performance.now()
 				oldd = performance.now()
-				respon = `Kecepatan Respon ${latensi.toFixed(4)} _Second_ \n ${oldd - neww} _miliseconds_\n\nRuntime : ${runtime(process.uptime())}\n\n💻 Info Server\nRAM: ${formatp(os.totalmem() - os.freemem())} / ${formatp(os.totalmem())}\n\n_NodeJS Memory Usaage_\n${Object.keys(used).map((key, _, arr) => `${key.padEnd(Math.max(...arr.map(v=>v.length)),' ')}: ${formatp(used[key])}`).join('\n')}\n\n${cpus[0] ? `_Total CPU Usage_\n${cpus[0].model.trim()} (${cpu.speed} MHZ)\n${Object.keys(cpu.times).map(type => `- *${(type + '*').padEnd(6)}: ${(100 * cpu.times[type] / cpu.total).toFixed(2)}%`).join('\n')}\n_CPU Core(s) Usage (${cpus.length} Core CPU)_\n${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Object.keys(cpu.times).map(type => `- *${(type + '*').padEnd(6)}: ${(100 * cpu.times[type] / cpu.total).toFixed(2)}%`).join('\n')}`).join('\n\n')}` : ''}`.trim()
+				respon = `Response ${latensi.toFixed(4)} _Second_ \n ${oldd - neww} _miliseconds_\n\nRuntime : ${runtime(process.uptime())}\n\n💻 Info Server\nRAM: ${formatp(os.totalmem() - os.freemem())} / ${formatp(os.totalmem())}\n\n_NodeJS Memory Usaage_\n${Object.keys(used).map((key, _, arr) => `${key.padEnd(Math.max(...arr.map(v=>v.length)),' ')}: ${formatp(used[key])}`).join('\n')}\n\n${cpus[0] ? `_Total CPU Usage_\n${cpus[0].model.trim()} (${cpu.speed} MHZ)\n${Object.keys(cpu.times).map(type => `- *${(type + '*').padEnd(6)}: ${(100 * cpu.times[type] / cpu.total).toFixed(2)}%`).join('\n')}\n_CPU Core(s) Usage (${cpus.length} Core CPU)_\n${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Object.keys(cpu.times).map(type => `- *${(type + '*').padEnd(6)}: ${(100 * cpu.times[type] / cpu.total).toFixed(2)}%`).join('\n')}`).join('\n\n')}` : ''}`.trim()
 				m.reply(respon)
 			}
 			break
@@ -1500,8 +1500,8 @@ module.exports = naze = async (naze, m, chatUpdate, store) => {
 			break
 			
 			// Search Menu
-			case 'play': case 'ytplay': case 'yts': case 'ytsearch': case 'youtubesearch': {
-				if (!text) return m.reply(`Example: ${prefix + command} dj komang`)
+			case 'song': case 'ytplay': case 'yts': case 'ytsearch': case 'youtubesearch': {
+				if (!text) return m.reply(`Example: ${prefix + command} lelena`)
 				m.reply(mess.wait)
 				const res = await yts.search(text);
 				const hasil = pickRandom(res.all)
@@ -1581,7 +1581,7 @@ module.exports = naze = async (naze, m, chatUpdate, store) => {
 				}
 			}
 			break
-			case 'ytmp4': case 'ytvideo': case 'ytplayvideo': {
+			case 'ytmp4': case 'video': case 'ytplayvideo': {
 				if (!text) return m.reply(`Example: ${prefix + command} url_youtube`)
 				if (!text.includes('youtu')) return m.reply('Url Tidak Mengandung Result Dari Youtube!')
 				m.reply(mess.wait)
@@ -1620,7 +1620,7 @@ module.exports = naze = async (naze, m, chatUpdate, store) => {
 				}
 			}
 			break
-			case 'tiktok': case 'tiktokdown': case 'ttdown': case 'ttdl': case 'tt': case 'ttmp4': case 'ttvideo': case 'tiktokmp4': case 'tiktokvideo': {
+			case 'tiktok': case 'tiktokdown': case 'tk': case 'ttdl': case 'tt': case 'ttmp4': case 'ttvideo': case 'tiktokmp4': case 'tiktokvideo': {
 				if (!text) return m.reply(`Example: ${prefix + command} url_tiktok`)
 				if (!text.includes('tiktok.com')) return m.reply('Url Tidak Mengandung Result Dari Tiktok!')
 				const hasil = await tiktokDl(text);
@@ -1872,150 +1872,15 @@ module.exports = naze = async (naze, m, chatUpdate, store) => {
 					profile = fake.anonim
 				}
 				const setv = pickRandom(listv)
-				const menunya = `
-╭──❍「 *USER INFO* 」❍
-├ *Nama* : ${m.pushName ? m.pushName : 'Tanpa Nama'}
-├ *Id* : @${m.sender.split('@')[0]}
-├ *User* : ${isVip ? 'VIP' : isPremium ? 'PREMIUM' : 'FREE'}
-├ *Limit* : ${isVip ? 'VIP' : db.users[m.sender].limit }
-├ *Uang* : ${db.users[m.sender] ? db.users[m.sender].uang.toLocaleString('id-ID') : '0'}
-╰─┬────❍
-╭─┴─❍「 *BOT INFO* 」❍
-├ *Nama Bot* : ${botname}
-├ *Powered* : @${'0@s.whatsapp.net'.split('@')[0]}
-├ *Owner* : @${owner[0].split('@')[0]}
-├ *Mode* : ${naze.public ? 'Public' : 'Self'}
-├ *Prefix* :「 MULTI-PREFIX 」
-╰─┬────❍
-╭─┴─❍「 *ABOUT* 」❍
-├ *Tanggal* : ${tanggal}
-├ *Hari* : ${hari}
-├ *Jam* : ${jam} WIB
-╰──────❍
-╭──❍「 *BOT* 」❍
-│${setv} ${prefix}profile
-│${setv} ${prefix}claim
-│${setv} ${prefix}buy limit (nominal)
-│${setv} ${prefix}transfer
-│${setv} ${prefix}leaderboard
-│${setv} ${prefix}request (text)
-│${setv} ${prefix}react (emoji)
-│${setv} ${prefix}tagme
-│${setv} ${prefix}runtime
-│${setv} ${prefix}totalfitur
-│${setv} ${prefix}ping
-│${setv} ${prefix}afk
-│${setv} ${prefix}rvo (reply pesan viewone)
-│${setv} ${prefix}inspect (url gc)
-│${setv} ${prefix}addmsg
-│${setv} ${prefix}delmsg
-│${setv} ${prefix}getmsg
-│${setv} ${prefix}listmsg
-│${setv} ${prefix}q (reply pesan)
-│${setv} ${prefix}menfes (62xxx|nama samaran)
-╰─┬────❍
-╭─┴❍「 *GROUP* 」❍
-│${setv} ${prefix}add (62xxx)
-│${setv} ${prefix}kick (@tag/62xxx)
-│${setv} ${prefix}promote (@tag/62xxx)
-│${setv} ${prefix}demote (@tag/62xxx)
-│${setv} ${prefix}setname (nama baru gc)
-│${setv} ${prefix}setdesc (desk)
-│${setv} ${prefix}setppgc (reply imgnya)
-│${setv} ${prefix}delete (reply pesan)
-│${setv} ${prefix}linkgrup
-│${setv} ${prefix}revoke
-│${setv} ${prefix}tagall
-│${setv} ${prefix}hidetag
-│${setv} ${prefix}totag (reply pesan)
-│${setv} ${prefix}listonline
-│${setv} ${prefix}antilink (on/off)
-│${setv} ${prefix}antidelete (on/off)
-╰─┬────❍
-╭─┴❍「 *SEARCH* 」❍
-│${setv} ${prefix}ytsearch (query)
-│${setv} ${prefix}pixiv (query)
-│${setv} ${prefix}pinterest (query)
-│${setv} ${prefix}wallpaper (query)
-│${setv} ${prefix}ringtone (query)
-╰─┬────❍
-╭─┴❍「 *DOWNLOAD* 」❍
-│${setv} ${prefix}ytmp3 (url)
-│${setv} ${prefix}ytmp4 (url)
-│${setv} ${prefix}instagram (url)
-│${setv} ${prefix}tiktok (url)
-│${setv} ${prefix}facebook (url)
-╰─┬────❍
-╭─┴❍「 *TOOLS* 」❍
-│${setv} ${prefix}get (url)
-│${setv} ${prefix}hd (reply pesan)
-│${setv} ${prefix}toaudio (reply pesan)
-│${setv} ${prefix}tomp3 (reply pesan)
-│${setv} ${prefix}tovn (reply pesan)
-│${setv} ${prefix}togif (reply pesan)
-│${setv} ${prefix}tovideo (reply pesan)
-│${setv} ${prefix}toimage (reply pesan)
-│${setv} ${prefix}toptv (reply pesan)
-│${setv} ${prefix}tourl (reply pesan)
-│${setv} ${prefix}tts (textnya)
-│${setv} ${prefix}toqr (textnya)
-│${setv} ${prefix}ssweb (url)
-│${setv} ${prefix}sticker (send/reply img)
-│${setv} ${prefix}colong (reply stiker)
-│${setv} ${prefix}smeme (send/reply img)
-│${setv} ${prefix}nulis
-╰─┬────❍
-╭─┴❍「 *AI* 」❍
-│${setv} ${prefix}ai (query)
-│${setv} ${prefix}gpt (query)
-╰─┬────❍
-╭─┴❍「 *GAME* 」❍
-│${setv} ${prefix}tictactoe
-│${setv} ${prefix}math (level)
-│${setv} ${prefix}suit
-│${setv} ${prefix}tebakbom
-│${setv} ${prefix}slot
-│${setv} ${prefix}casino (nominal)
-│${setv} ${prefix}rampok (@tag)
-│${setv} ${prefix}begal
-╰─┬────❍
-╭─┴❍「 *FUN* 」❍
-│${setv} ${prefix}dadu
-│${setv} ${prefix}bisakah (text)
-│${setv} ${prefix}apakah (text)
-│${setv} ${prefix}kapan (text)
-│${setv} ${prefix}kerangajaib (text)
-│${setv} ${prefix}cekmati (text)
-│${setv} ${prefix}rate (reply pesan)
-│${setv} ${prefix}jodohku
-│${setv} ${prefix}jadian
-│${setv} ${prefix}fitnah
-│${setv} ${prefix}halah (text)
-│${setv} ${prefix}hilih (text)
-│${setv} ${prefix}huluh (text)
-│${setv} ${prefix}heleh (text)
-│${setv} ${prefix}holoh (text)
-╰─┬────❍
-╭─┴❍「 *OWNER* 」❍
-│${setv} ${prefix}mode (public or self)
-│${setv} ${prefix}setbio
-│${setv} ${prefix}setppbot
-│${setv} ${prefix}join
-│${setv} ${prefix}leave
-│${setv} ${prefix}block
-│${setv} ${prefix}openblock
-│${setv} ${prefix}listpc
-│${setv} ${prefix}listgc
-│${setv} ${prefix}creategc
-│${setv} ${prefix}addprem
-│${setv} ${prefix}delprem
-│${setv} ${prefix}listprem
-│${setv} ${prefix}bot --settings
-│${setv} ${prefix}bot settings
-│${setv} $
-│${setv} >
-│${setv} <
-╰──────❍`
+				const menunya = `*BOT MENU*
+
+.song
+.ytmp3
+.ytmp4
+.menu
+.bot settings
+.tiktok
+.facebook`
 				await naze.sendMessage(m.chat, {
 					document: fake.docs,
 					fileName: ucapanWaktu,
